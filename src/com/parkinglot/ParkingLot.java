@@ -76,5 +76,24 @@ public class ParkingLot {
             }
         }
     }
+
+    public int getRemainingSpots() {
+        int motorcycleRemaining = motorcycleSpots - usedMotorcycleSpots;
+        int carRemaining = carSpots - usedCarSpots;
+        int largeRemaining = largeSpots - usedLargeSpots;
+        return motorcycleRemaining + carRemaining + largeRemaining;
+    }
+
+    public boolean isFull() {
+        return getRemainingSpots() == 0;
+    }
+
+    public boolean isEmpty() {
+        return parkedVehicles.isEmpty();
+    }
+
+    public int getVanSpotsTaken() {
+        return usedLargeSpots / 3; // Each van takes 3 large spots
+    }
 }
 
